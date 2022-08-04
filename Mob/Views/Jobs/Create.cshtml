@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Mob.Models.Job
+
+<h4>Add a new task</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  @Html.Label("Select criminal")
+  @Html.DropDownList("CriminalId")
+
+  <input type="submit" value="Add new job" />
+}
+<p>@Html.ActionLink("Show all jobs", "Index")</p>

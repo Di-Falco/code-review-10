@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Mob.Models;
+@model List<Mob.Models.Job>;
+
+<h1>Jobs</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No jobs have been added yet!</h3>
+} 
+
+@foreach (Job job in Model)
+{
+  <li>@Html.ActionLink($"{job.Description}", "Details", new { id = job.JobId })</li>
+}
+
+<p>@Html.ActionLink("Add new job", "Create")</p>

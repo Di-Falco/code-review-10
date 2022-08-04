@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
+  </PropertyGroup>
+  <JobGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2" />
+  </JobGroup>
+
+  <JobGroup>
+    <ProjectReference Include="..\Mob\Mob.csproj" />  
+  </JobGroup>
+
+</Project>
