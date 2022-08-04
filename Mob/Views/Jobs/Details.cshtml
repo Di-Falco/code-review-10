@@ -14,17 +14,23 @@
 else
 {
   <h4>This job belongs to:</h4>
+
   <ul>
   @foreach(var join in Model.Criminals)
   {
     <li>@join.Criminal.Name</li>
+    @using (Html.BeginForm("DeleteCriminal", "Jobs"))
+    {
+      @Html.Hidden("joinId", @join.CriminalJobId)
+      <input type="submit" value="Delete"/>
+    }
   }
   </ul>
 }
 
 
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
-<p>Html.ActionLink("Add a Criminal", "AddCriminal", new { id = Model.JobId})</p>
+<p>@Html.ActionLink("Add a Criminal", "AddCriminal", new { id = Model.JobId })</p>
 <p>@Html.ActionLink("Edit Job", "Edit", new { id = Model.JobId })</p>
 <p>@Html.ActionLink("Delete Job", "Delete", new { id = Model.JobId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>

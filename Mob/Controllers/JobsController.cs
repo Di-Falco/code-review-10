@@ -86,19 +86,29 @@ namespace Mob.Controllers
         }
         return RedirectToAction("Index");
     }
-//     public ActionResult Delete(int id)
-//     {
-//       var thisJob = _db.Jobs.FirstOrDefault(job => job.JobId == id);
-//       return View(thisJob);
-//     }
+    
+    public ActionResult Delete(int id)
+    {
+      var thisJob = _db.Jobs.FirstOrDefault(job => job.JobId == id);
+      return View(thisJob);
+    }
 
-//     [HttpPost, ActionName("Delete")]
-//     public ActionResult DeleteConfirmed(int id)
-//     {
-//       var thisJob = _db.Jobs.FirstOrDefault(job => job.JobId == id);
-//       _db.Jobs.Remove(thisJob);
-//       _db.SaveChanges();
-//       return RedirectToAction("Index");
-//     }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisJob = _db.Jobs.FirstOrDefault(job => job.JobId == id);
+      _db.Jobs.Remove(thisJob);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteCriminal(int joinId)//so we can delete a criminal from a job
+    {
+      var joinEntry = _db.CriminalJob.FirstOrDefault(entry => entry.CriminalJobId == joinId);
+      _db.CriminalJob.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
