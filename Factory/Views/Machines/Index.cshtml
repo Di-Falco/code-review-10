@@ -14,10 +14,15 @@
   <h3>No machines have been added yet</h3>
 } 
 
+<ul>
 @foreach (Machine machine in Model)
 {
-  <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+  <li>
+    <strong>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</strong>&emsp;
+    <em>@machine.Description</em>
+  </li>
 }
+</ul>
 </div>
 
 <hr />
