@@ -4,4 +4,6 @@
 
 <h1>SillyStringz</h1>
 <hr />
-<p>@Html.ActionLink("See all machines", "Index", "Machines")</p> <p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
+<a href='@Url.Action("Index", "Machines")'><button>See all machines</button></a>
+<br><br>
+<a href='@Url.Action("Index", "Engineers")'><button>See all engineers</button></a>

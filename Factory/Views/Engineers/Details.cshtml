@@ -14,11 +14,11 @@
 }
 else 
 {
-  <h4>This engineer is licensed to repair this machine:</h4>
+  <h4>Machines this engineer is licensed to repair:</h4>
   <ul>
   @foreach(var join in Model.Machines)
   {
-    <li>@join.Machine.Name</li>
+  <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })</li>
     @using (Html.BeginForm("DeleteMachine", "Engineers"))
     {
       @Html.Hidden("joinId", @join.RepairsId)
