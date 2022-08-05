@@ -8,11 +8,8 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
-
-  @Html.Label("Select engineer")
-  @Html.DropDownList("EngineerId")
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
 
   <input type="submit" value="Add new machine" />
 }
