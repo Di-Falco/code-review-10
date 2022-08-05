@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Add a new task</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  @Html.Label("Select engineer")
+  @Html.DropDownList("EngineerId")
+
+  <input type="submit" value="Add new machine" />
+}
+<p>@Html.ActionLink("Show all machines", "Index")</p>
