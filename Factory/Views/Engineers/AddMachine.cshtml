@@ -4,16 +4,15 @@
 
 @model Factory.Models.Engineer
 
-<h2>Edit</h2>
+<h2>Add a machine</h2>
 
-<h4>Edit this engineer: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add a repair license to this engineer: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+  @Html.DropDownList("MachineId", (IEnumerable<SelectListItem>)ViewData["Menu"],"-- Select Machine --" )
 
   <input type="submit" value="Save" />
 }

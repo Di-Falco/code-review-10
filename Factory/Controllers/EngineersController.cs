@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
@@ -58,6 +59,24 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddMachine(int id)
+    {
+        var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+        ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+        return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult AddMachine(Engineer engineer, int MachineId)
+    {
+      if (MachineId != 0)
+      {
+        _db.Repairs.Add(new Repairs() { MachineId = MachineId, EngineerId = engineer.EngineerId});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = engineer.EngineerId });
+    }    
+
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
@@ -72,5 +91,14 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+      var joinEntry = _db.Repairs.FirstOrDefault(entry => entry.RepairsId == joinId);
+      _db.Repairs.Remove(joinEntry);
+      _db.SaveChanges();
+      return Redirect(Request.Headers["Referer"].ToString());
+    }    
   }
 }

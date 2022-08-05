@@ -6,14 +6,15 @@
 <h2>Machine Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-
+<h3>@Html.DisplayFor(model => model.Description)</h3>
+<hr />
 @if(@Model.Engineers.Count == 0)
 {
-  <p>No engineers are assigned to this machine</p>
+  <p>No engineers are licensed to repair this machine</p>
 }
 else
 {
-  <h4>This machine belongs to:</h4>
+  <h4>This machine's licensed engineers:</h4>
 
   <ul>
   @foreach(var join in Model.Engineers)
@@ -27,7 +28,7 @@ else
   }
   </ul>
 }
-
+<hr />
 <a href='@Url.Action("AddEngineer", new { id = Model.MachineId })'><button>Add an Engineer</button></a>
 <a href='@Url.Action("Edit", new { id = Model.MachineId })'><button>Edit Machine</button></a>
 <a href='@Url.Action("Delete", new { id = Model.MachineId })'><button>Delete Machine</button></a>

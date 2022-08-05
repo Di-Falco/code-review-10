@@ -100,7 +100,7 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult DeleteEngineer(int joinId)//so we can delete a engineer from a machine
+    public ActionResult DeleteEngineer(int joinId)
     {
       var joinEntry = _db.Repairs.FirstOrDefault(entry => entry.RepairsId == joinId);
       _db.Repairs.Remove(joinEntry);
