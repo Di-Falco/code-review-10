@@ -23,6 +23,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.Machines = _db.Machines.ToList();
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View();
     }
@@ -37,7 +38,7 @@ namespace Factory.Controllers
         _db.Repairs.Add(new Repairs() { EngineerId = EngineerId, MachineId = machine.MachineId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Index");
+      return Redirect(Request.Headers["Referer"].ToString());
     }
 
     public ActionResult Details(int id)

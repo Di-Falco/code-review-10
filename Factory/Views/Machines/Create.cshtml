@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
 @model Factory.Models.Machine
 
 <h4>Add a new machine</h4>
@@ -10,14 +11,29 @@
 <div class='box'>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
+  <span>
+  @Html.LabelFor(model => model.Name) &ensp;
   @Html.TextBoxFor(model => model.Name)
-
-  @Html.LabelFor(model => model.Description)
+  &emsp;&emsp;
+  @Html.LabelFor(model => model.Description) &ensp;
   @Html.TextBoxFor(model => model.Description)
-
+  </span>
+  <br>
   <input type="submit" value="Add new machine" />
 }
+</div>
+<div class='box'>
+@if (@ViewBag.Machines.Count == 0)
+{
+  <h3>No machines have been added yet</h3>
+} 
+
+<ul>
+  @foreach(Machine machine in ViewBag.Machines)
+  {
+    <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+  }
+</ul>
 </div>
 
 <hr />

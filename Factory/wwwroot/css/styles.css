@@ -1,10 +1,31 @@
 nav#header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;	
 	box-sizing: border-box;
-	border: 5px solid #2f4f4f;
+	border: 10px solid #2f4f4f;
 	background-color: #bccbdb;
 	color: #000;
 	padding: 2%;
 	width: 100%;
+	text-align: center;
+}
+
+div#footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	border: 10px solid #2f4f4f;
+	background-color: #bccbdb;
+	color: #bccbdb;
+	padding: 8px;
+}
+
+body {
+	padding-top: 175px;
 }
 
 .box {
@@ -12,6 +33,6 @@ nav#header {
 	border: 5px solid #2f4f4f;
 	background-color: #bccbdb;
 	color: #000;
-	padding: 2%;
-	margin: 2%;
+	padding: 8px;
+	margin: 8px;
 }
