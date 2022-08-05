@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Factory.Models
 {
-  public class FactoryContextFactory : IDesignTimeDbContextFactory<FactoryContext> //creating the database schema based on our Models
+  public class FactoryContextFactory : IDesignTimeDbContextFactory<FactoryContext>
   {
 
     FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)

@@ -17,4 +17,4 @@
   <li>@Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId })</li>
 }
 
-<p>@Html.ActionLink("Add new machine", "Create")</p>
+<a href='@Url.Action("Create")'><button>Add new machine</button></p>

@@ -11,7 +11,6 @@ namespace Factory.Models
 
     public int MachineId { get; set; }
     public string Description { get; set; }
-    public virtual ICollection<Repairs> Engineers { get; set; } //ICollection includes built in methods that help us manipulate our data. Entity needs it.
-    // Engineers named after this.Engineers
+    public virtual ICollection<Repairs> Engineers { get; set; }
   }
 }

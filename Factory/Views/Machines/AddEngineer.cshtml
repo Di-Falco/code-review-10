@@ -12,10 +12,10 @@
 {
   @Html.HiddenFor(model => model.MachineId)
 
-  @Html.Label("Select category")
+  @Html.Label("Select Engineer")
   @Html.DropDownList("EngineerId")
 
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to gabagool", "Index")</p>
+<a href='@Url.Action("Index")'><button>Back to list</button></a>

@@ -14,7 +14,7 @@
 }
 else 
 {
-  <h4>Machines this engineer has:</h4>
+  <h4>This engineer is licensed to repair this machine:</h4>
   <ul>
   @foreach(var join in Model.Machines)
   {
@@ -23,6 +23,6 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("gabagool", "Index")</p>
+<a href='@Url.Action("Edit", new { id = Model.EngineerId })'><button>Edit Engineer</button></a>
+<a href='@Url.Action("Delete", new { id = Model.EngineerId })'><button>Delete Engineer</button></a>
+<a href='@Url.Action("Index")'><button>Back to List</button></a>

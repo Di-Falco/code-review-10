@@ -11,4 +11,5 @@
   @Html.TextBoxFor(model => model.Name)
   <input type="submit" value="Add new engineer" />
 }
-<p>@Html.ActionLink("Show all engineers", "Index")</p>
+
+<a href='@Url.Action("Index")'><button>Show all engineers</button></a>

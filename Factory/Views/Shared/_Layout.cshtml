@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
-    @RenderBody()
+    @await Html.PartialAsync("Header")
+    <hr />
+    <div class='container'>
+      @RenderBody()
+    </div>
   </body>
 </html>
