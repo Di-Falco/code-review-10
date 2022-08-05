@@ -2,11 +2,39 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
+@model (List<Machine> machines, List<Engineer> engineers)
+
 <h1>SillyStringz' Silly Things</h1>
 <hr />
 
 <div class='box'>
 <a href='@Url.Action("Index", "Machines")'><button>See all machines</button></a>
-<br><br>
+@if (@Model.machines.Count == 0)
+{
+  <h6>No machines have been added yet</h6>
+}
+
+<ul>
+@foreach (Machine machine in Model.machines)
+{
+  <li>
+    <strong>@machine.Name</strong>&emsp;
+    <em>@machine.Description</em>
+  </li>
+}
+</ul>
 <a href='@Url.Action("Index", "Engineers")'><button>See all engineers</button></a>
+@if (@Model.engineers.Count == 0)
+{
+  <h6>No engineers have been added yet</h6>
+} 
+
+<ul>
+  @foreach(Engineer engineer in Model.engineers)
+  {
+    <li>@engineer.Name</li>
+  }
+</ul>
+</div>
 </div>
