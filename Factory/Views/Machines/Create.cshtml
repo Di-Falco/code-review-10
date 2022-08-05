@@ -4,6 +4,7 @@
 
 @model Factory.Models.Machine
 
+<div class='box'>
 <h4>Add a new machine</h4>
 
 @using (Html.BeginForm())
@@ -16,5 +17,6 @@
 
   <input type="submit" value="Add new machine" />
 }
+</div>
 <hr />
 <a href='@Url.Action("Index")'><button>Back to list</button></a>

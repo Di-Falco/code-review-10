@@ -7,3 +7,10 @@ div#footer {
 	background:#333;
 	padding:8px;
 }
+
+.box {
+	box-sizing: border-box;
+	border: 5px solid darkslategrey;
+	background-color: lightslategrey;
+	color: black;
+}

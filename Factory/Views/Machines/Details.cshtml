@@ -3,6 +3,8 @@
 }
 
 @model Factory.Models.Machine
+
+<div class='box'>
 <h2>Machine Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
@@ -28,6 +30,7 @@ else
   }
   </ul>
 }
+</div>
 <hr />
 <a href='@Url.Action("AddEngineer", new { id = Model.MachineId })'><button>Add an Engineer</button></a>
 <a href='@Url.Action("Edit", new { id = Model.MachineId })'><button>Edit Machine</button></a>

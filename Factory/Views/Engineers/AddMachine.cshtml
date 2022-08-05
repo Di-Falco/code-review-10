@@ -4,6 +4,7 @@
 
 @model Factory.Models.Engineer
 
+<div class='box'>
 <h2>Add a machine</h2>
 
 <h4>Add a repair license to this engineer: @Html.DisplayFor(model => model.Name)</h4>
@@ -16,5 +17,6 @@
 
   <input type="submit" value="Save" />
 }
+</div>
 <hr />
 <a href='@Url.Action("Index")'><button>Back to list</button></a>

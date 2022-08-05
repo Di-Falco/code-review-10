@@ -4,6 +4,7 @@
 
 @model Factory.Models.Engineer
 
+<div class='box'>
 <h2>Engineer Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
@@ -27,6 +28,7 @@ else
   }
   </ul>
 }
+</div>
 <hr />
 <a href='@Url.Action("AddMachine", new { id = Model.EngineerId })'><button>Add a repair license</button></a>
 <a href='@Url.Action("Edit", new { id = Model.EngineerId })'><button>Edit Engineer</button></a>
