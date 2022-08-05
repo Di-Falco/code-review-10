@@ -2,9 +2,10 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models
 @model Factory.Models.Engineer
 
-<h4>Add a new task</h4>
+<h4>Add a new engineer</h4>
 <hr />
 
 <div class='box'>
@@ -15,6 +16,18 @@
   <input type="submit" value="Add new engineer" />
 }
 </div>
+<div class='box'>
+@if (@ViewBag.Engineers.Count == 0)
+{
+  <h3>No engineers have been added yet</h3>
+} 
 
+<ul>
+  @foreach(Engineer engineer in ViewBag.Engineers)
+  {
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
+  }
+</ul>
+</div>
 <hr />
 <a href='@Url.Action("Index")'><button>Show all engineers</button></a>

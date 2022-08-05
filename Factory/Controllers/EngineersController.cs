@@ -24,6 +24,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.Engineers = _db.Engineers.ToList();
       return View();
     }
 
@@ -32,14 +33,14 @@ namespace Factory.Controllers
     {
       _db.Engineers.Add(engineer);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return Redirect(Request.Headers["Referer"].ToString());
     }
 
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-          .Include(engineer => engineer.Machines)
-          .ThenInclude(join => join.Machine)
+          // .Include(engineer => engineer.Machines)
+          // .ThenInclude(join => join.Machine)
           .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
       
