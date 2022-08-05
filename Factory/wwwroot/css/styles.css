@@ -1,16 +1,17 @@
-div#footer {
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	color:#CCC;
-	background:#333;
-	padding:8px;
+nav#header {
+	box-sizing: border-box;
+	border: 5px solid #2f4f4f;
+	background-color: #bccbdb;
+	color: #000;
+	padding: 2%;
+	width: 100%;
 }
 
 .box {
 	box-sizing: border-box;
-	border: 5px solid darkslategrey;
-	background-color: lightslategrey;
-	color: black;
+	border: 5px solid #2f4f4f;
+	background-color: #bccbdb;
+	color: #000;
+	padding: 2%;
+	margin: 2%;
 }

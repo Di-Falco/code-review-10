@@ -4,11 +4,12 @@
 
 @model Factory.Models.Machine
 
-<div class='box'>
 <h2>Machine Details</h2>
 <hr />
+
+<div class='box'>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h3>@Html.DisplayFor(model => model.Description)</h3>
+<h4>@Html.DisplayFor(model => model.Description)</h4>
 <hr />
 @if(@Model.Engineers.Count == 0)
 {
@@ -16,7 +17,7 @@
 }
 else
 {
-  <h4>This machine's licensed engineers:</h4>
+  <h5>This machine's licensed engineers:</h5>
 
   <ul>
   @foreach(var join in Model.Engineers)

@@ -5,9 +5,10 @@
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
 
-<div class='box'>
 <h1>Machines</h1>
+<hr />
 
+<div class='box'>
 @if (@Model.Count == 0)
 {
   <h3>No machines have been added yet</h3>
@@ -18,5 +19,6 @@
   <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
 }
 </div>
+
 <hr />
 <a href='@Url.Action("Create")'><button>Add new machine</button></p>

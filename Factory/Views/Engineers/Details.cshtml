@@ -4,10 +4,12 @@
 
 @model Factory.Models.Engineer
 
-<div class='box'>
 <h2>Engineer Details</h2>
 <hr />
+
+<div class='box'>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<hr />
 
 @if(@Model.Machines.Count == 0)
 {
@@ -15,7 +17,7 @@
 }
 else 
 {
-  <h4>Machines this engineer is licensed to repair:</h4>
+  <h5>Machines this engineer is licensed to repair:</h5>
   <ul>
   @foreach(var join in Model.Machines)
   {
@@ -29,6 +31,7 @@ else
   </ul>
 }
 </div>
+
 <hr />
 <a href='@Url.Action("AddMachine", new { id = Model.EngineerId })'><button>Add a repair license</button></a>
 <a href='@Url.Action("Edit", new { id = Model.EngineerId })'><button>Edit Engineer</button></a>

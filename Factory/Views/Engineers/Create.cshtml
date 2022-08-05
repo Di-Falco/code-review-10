@@ -4,8 +4,10 @@
 
 @model Factory.Models.Engineer
 
-<div class='box'>
 <h4>Add a new task</h4>
+<hr />
+
+<div class='box'>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
@@ -13,5 +15,6 @@
   <input type="submit" value="Add new engineer" />
 }
 </div>
+
 <hr />
 <a href='@Url.Action("Index")'><button>Show all engineers</button></a>
