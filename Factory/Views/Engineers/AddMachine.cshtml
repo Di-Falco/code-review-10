@@ -19,6 +19,21 @@
   <input type="submit" value="Save" />
 }
 </div>
-
+<div class='box'>
+@if(@Model.Machines.Count == 0)
+{
+  <p>This engineer does not have any machines</p>
+}
+else 
+{
+  <h5>Machines this engineer is licensed to repair:</h5>
+  <ul>
+  @foreach(var join in Model.Machines)
+  {
+    <li>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId })</li>
+  }
+  </ul>
+}
+</div>
 <hr />
 <a href='@Url.Action("Index")'><button>Back to list</button></a>

@@ -70,12 +70,12 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
-      if (MachineId != 0)
+      if (MachineId != 0 && _db.Repairs.FirstOrDefault(table => table.MachineId == MachineId && table.EngineerId == engineer.EngineerId) == null)
       {
         _db.Repairs.Add(new Repairs() { MachineId = MachineId, EngineerId = engineer.EngineerId});
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = engineer.EngineerId });
+      return Redirect(Request.Headers["Referer"].ToString());
     }    
 
     public ActionResult Delete(int id)
